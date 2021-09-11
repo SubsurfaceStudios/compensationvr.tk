@@ -1,3 +1,25 @@
 ﻿body {
     background-color: lightblue;
+    scroll-behavior: smooth;
+}
+
+#name {
+    width: auto;
+    font-family: Arial;
+    color: lightslategray;
+}
+
+#motto {
+    width: auto;
+    font-family: Arial;
+    color:darkgray;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.redacted {
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
