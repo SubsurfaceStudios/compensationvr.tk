@@ -9,7 +9,7 @@
     width: auto;
     font-family: Arial;
     color: white;
-    size: 100px;;
+    size: 15%;;
 
     top:-50%;
 }
@@ -89,4 +89,9 @@
     left: 50%;
     font-size: 25px;
     transform: translate(-50%, -50%);
+  }
+
+  p {
+    color:gray;
+    font-family: Arial, Helvetica, sans-serif;
   }
