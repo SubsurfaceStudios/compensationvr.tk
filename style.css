@@ -1,97 +1,62 @@
-﻿body {
-    background-color: lightblue;
-    scroll-behavior: smooth;
-
-    padding:0mm;
+﻿:root {
+  --font: 'Lato', cursive;
+  --background-color: #391F51;
 }
 
-#name {
-    width: auto;
-    font-family: Arial;
-    color: white;
-    size: 15%;;
-
-    top:-50%;
+body {
+  background-color: var(--background-color);
+  font-family: var(--font)
 }
 
-#motto {
-    width: auto;
-    font-family: Arial;
-    color:darkgray;
-    top:-50%;
+.text {
+  color: white;
+  text-align: center;
 }
 
-.align-center {
-    text-align: center;
+::selection {
+  background-color: #502a74;
 }
 
-.redacted {
-    color: transparent;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+.link {
+  color: lightblue;
 }
 
-.hidden {
-    visibility: hidden;
+.link:hover {
+  cursor:pointer;
+  color: #6239FF;
 }
 
-#header-background {
-    width: 100%;
-    height: 100%;
-    position: inherit;
+/* NAVIGATION BAR & BORDERS  */
 
-    padding: 0px;
+.navbar{
+  background-color: #703ca0;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+}
+.navbar ul{
+  overflow: auto;
 }
 
-#header {
-    top: -50%;
+.border {
+  border-color: white;
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
 }
 
-/* Text Allignment in Picture */
-/* Container holding the image and the text */
-.container {
-    position: relative;
-    text-align: center;
-    color: white;
-  }
+.navbar li{
+  font-size: 25px;
+  float:left;
+  list-style: none; 
+  margin: 13px 20px;
   
-  /* Bottom left text */
-  .bottom-left {
-    position: absolute;
-    bottom: 8px;
-    left: 16px;
-  }
-  
-  /* Top left text */
-  .top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-  }
-  
-  /* Top right text */
-  .top-right {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
-  
-  /* Bottom right text */
-  .bottom-right {
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-  }
-  
-  /* Centered text */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 25px;
-    transform: translate(-50%, -50%);
-  }
+}
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  color: white;
+}
 
-  p {
-    color:gray;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+/* END */
