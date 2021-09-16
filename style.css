@@ -50,6 +50,14 @@ body {
   border-radius: 10px;
 }
 
+.navbar img {
+  float: left;
+  height: 70px;
+  display: flex;
+  float: left;
+  border-radius: 10px;
+}
+
 .navbar li{
   font-size: 25px;
   float:left;
