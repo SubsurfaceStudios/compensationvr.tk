@@ -17,11 +17,12 @@ body {
   background-color: #502a74;
 }
 
-.link {
+.text a {
   color: lightblue;
+  text-decoration: none;
 }
 
-.link:hover {
+.text a:hover {
   cursor:pointer;
   color: #6239FF;
 }
@@ -30,7 +31,10 @@ body {
 
 .navbar{
   background-color: #703ca0;
+  margin-top: -8px;
   border-radius: 30px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   display: flex;
   justify-content: center;
 }
