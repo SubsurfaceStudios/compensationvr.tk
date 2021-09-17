@@ -39,6 +39,8 @@ body {
   justify-content: center;
 }
 .navbar ul{
+  display: flex;
+  margin-right: auto;
   overflow: auto;
 }
 
@@ -50,20 +52,18 @@ body {
   border-radius: 10px;
 }
 
-.navbar img {
-  float: left;
-  height: 70px;
-  display: flex;
-  float: left;
+.navImg {
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: 10px;
   border-radius: 10px;
 }
 
-.navbar li{
+.navbar ul li{
   font-size: 25px;
-  float:left;
-  list-style: none; 
-  margin: 13px 20px;
-  
+  float: left;
+  list-style: none;
+  margin: 13px 5px;
 }
 .navbar li a{
   padding: 3px 3px;
