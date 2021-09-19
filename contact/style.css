@@ -1,0 +1,139 @@
+:root {
+     --font: 'Lato', cursive;
+     --background-color: #391F51;
+     }
+     
+     body {
+     margin: 0;
+     
+     background-color: var(--background-color);
+     font-family: var(--font)
+     }
+     
+     .startAnim {
+     animation-name: slideIn;
+     animation-duration: 1s;
+     animation-timing-function:ease-out;
+     animation-iteration-count: initial;
+     }
+     
+     .text {
+     color: white;
+     text-align: center;
+     }
+     
+     .regular ::selection {
+     background-color: #502a74;
+     }
+     
+     section {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     min-height: 400px;
+     padding: 100px 20vw;
+     }
+     
+     .text p {
+     font-size: 16px;
+     }
+     
+     a {
+     color: lightblue;
+     text-decoration: none;
+     }
+     
+     a:hover {
+     cursor:pointer;
+     color: #6239FF;
+     }
+     
+     /* NAVIGATION BAR & BORDERS  */
+     
+     .navbar{
+     background-color: #703ca0;
+     margin-top: -8px;
+     border-radius: 30px;
+     border-top-right-radius: 0;
+     border-top-left-radius: 0;
+     display: flex;
+     justify-content: center;
+     }
+     .navbar ul{
+     display: flex;
+     margin-right: auto;
+     overflow: auto;
+     }
+     
+     border {
+     border-color: white;
+     padding: 5px;
+     border-style: solid;
+     border-width: 2px;
+     border-radius: 10px;
+     }
+     
+     .navImg {
+     margin-top: 10px;
+     margin-right: auto;
+     margin-left: 10px;
+     border-radius: 10px;
+     }
+     
+     .navbar ul li{
+     font-size: 25px;
+     float: left;
+     list-style: none;
+     margin: 13px 5px;
+     }
+     .navbar li a{
+     padding: 3px 3px;
+     text-decoration: none;
+     color: white;
+     }
+     
+     @keyframes slideIn {
+     0% {
+       margin-top: 100px;
+       opacity: 0;
+     }
+     100% {
+       opacity: 1;
+     }
+     }
+     
+     /* Colors */
+     .blue {
+     background: #28ACEE;
+     }
+     
+     .blue ::selection {
+     background-color: #91daff;
+     }
+     
+     .regular {
+     background: var(--background-color);
+     }
+     
+     /* SPACING */
+     .spacer {
+     aspect-ratio: 960/300;
+     width: 100%;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     }
+     
+     
+     /* WAVE 1 */
+     .wave_1 {
+     background-image: url('./SVG/transition_a.svg');
+     }
+     
+     .wave_2 {
+     background-image: url('./SVG/transition_b.svg');
+     }
+     
+     
+     /* END */
