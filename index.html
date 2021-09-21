@@ -35,7 +35,8 @@
             </ul>
         </nav>
 
-        <div class="warning-box text">
+        <div class="warning-box text" id="clickMe">
+            <button onclick="closeDialog()">X</button>
             <p>Remember, this site is currently being worked on, and should get updated a few times per day <br>
                 If the website doesn't update for you when we announced a released update and or the website broke, <br>
                 please try clearing your browser cache, in order for it to update properly. <br>
@@ -44,6 +45,13 @@
             </p>
         </div>
     </head>
+    <script>
+        function closeDialog() {
+            var item = document.getElementById("clickMe");
+
+            remove(item);
+        }
+    </script>
     <body>
         <section class="regular startAnim" style="padding: 0px 20vw">
             
