@@ -129,6 +129,11 @@ background: var(--background-color);
   grid-template-columns: repeat(auto-fill, minmax(240px, 33%));
 }
 
+.dialog-close-button {
+  float:left;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 /* SPACING */
 .spacer {
 aspect-ratio: 960/300;
