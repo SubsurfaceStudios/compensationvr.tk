@@ -122,6 +122,13 @@ background: var(--background-color);
   width: 100%;
 }
 
+.art-grid {
+  display:grid;
+  gap:1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
 /* SPACING */
 .spacer {
 aspect-ratio: 960/300;
