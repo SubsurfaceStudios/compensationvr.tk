@@ -116,6 +116,11 @@ background-color: #91daff;
 background: var(--background-color);
 }
 
+.warning-box {
+  background-color: rgb(255, 174, 52);
+  padding-bottom: 15px;
+}
+
 /* SPACING */
 .spacer {
 aspect-ratio: 960/300;
