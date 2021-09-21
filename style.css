@@ -130,7 +130,7 @@ background: var(--background-color);
 }
 
 .dialog-close-button {
-  float:left;
+  float:right;
   background-color: rgba(0, 0, 0, 0);
 }
 
