@@ -119,6 +119,7 @@ background: var(--background-color);
 .warning-box {
   background-color: rgb(255, 174, 52);
   padding-bottom: 15px;
+  width: 100%;
 }
 
 /* SPACING */
