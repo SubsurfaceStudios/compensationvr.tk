@@ -170,3 +170,8 @@ background-image: url('./SVG/transition_b.svg');
 
 
 /* END */
+
+#backgroundImgTitle {
+  position: absolute;
+  height: 100%;
+}
