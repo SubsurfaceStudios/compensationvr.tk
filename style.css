@@ -1,6 +1,6 @@
 ﻿:root {
 --font: 'Lato', cursive;
---background-color: #391F51;
+--background-color: #3b3b3b;
 }
 
 body {
@@ -23,7 +23,7 @@ text-align: center;
 }
 
 .regular ::selection {
-background-color: #502a74;
+background-color: #888888;
 }
 
 section {
@@ -52,7 +52,7 @@ color: #6239FF;
 /* NAVIGATION BAR & BORDERS  */
 
 .navbar{
-background-color: #703ca0;
+background-color: #6d6d6d;
 margin-top: -8px;
 border-radius: 30px;
 border-top-right-radius: 0;
@@ -64,6 +64,7 @@ justify-content: center;
 display: flex;
 margin-right: auto;
 overflow: auto;
+white-space:nowrap;
 }
 
 border {
@@ -72,6 +73,20 @@ padding: 5px;
 border-style: solid;
 border-width: 2px;
 border-radius: 10px;
+}
+
+h1 {
+  font-size: 8vw;
+}
+
+.border.sc {
+  width:50vw;
+}
+
+@media only screen and (orientation: portrait) {
+  .border.sc {
+    width:85vw;
+  }
 }
 
 .navImg {
