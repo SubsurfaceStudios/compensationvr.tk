@@ -50,7 +50,7 @@
 
             //i have no idea what to do from here
 
-            var data = await fetch({url: "https://cvrapi.loca.lt/api/auth/login", json: `{"username": "${username}", "password": "${password}"}`, method: postMessage, headers: {"bypass-tunnel-reminder": "IDFK"}});
+            var data = jQuery.ajax("https://cvrapi.loca.lt/api/auth/login", {"headers": {"bypass-tunnel-reminder": "idk_sure"}, "contentType": "application/json", "contents": `{"username": "${username}", "password": "${password}"}`});
 
             console.log(await data.body.accessToken);
         }
