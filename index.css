@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+:root {
+    --backgroundColor: rgb(33, 33, 33);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+
+    font-weight: 400;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
+
+/* Nav Bar */
+header {
+    background-color: rgba(0, 0, 0, 0.152);
+}
+
+li, a, button {
+    font-size: 25px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-tracks: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style-type: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 25px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #c3d6ff;
+}
+
+header button {
+    margin-top: 15px;
+    padding: 9px 25px;
+    background-color: rgb(49, 157, 184);
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover {
+    padding: 9px 25px;
+    background-color: rgba(49, 157, 184, 0.65);
+    transition: all 0.3s ease 0s;
+}
+/* /Nav Bar */
+
+.txt {
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items:center;
+}
