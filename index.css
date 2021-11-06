@@ -12,18 +12,16 @@
 @keyframes start {
     0% {
         opacity: 0;
-        margin-top: 20px;
     }
     100% {
         opacity: 1;
-        margin-top: 0px;
     }
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
-    padding:0;
+    padding: 0;
 
     font-weight: 400;
 }
@@ -75,7 +73,7 @@ header {
 header button {
     margin-top: 15px;
     padding: 9px 25px;
-    background-color: rgb(49, 157, 184);
+    background-color: rgb(33, 103, 121);
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
@@ -84,7 +82,7 @@ header button {
 
 header button:hover {
     padding: 9px 25px;
-    background-color: rgba(49, 157, 184, 0.65);
+    background-color: rgba(33, 103, 121, 0.65);
     transition: all 0.3s ease 0s;
 }
 /* /Nav Bar */
@@ -95,4 +93,15 @@ header button:hover {
     flex-direction: column;
 
     align-items:center;
+    text-align: center;
+}
+
+.txt h1 {
+    font-size: 40px;
+}
+
+.txt h2 {
+    font-size: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
