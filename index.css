@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
 
 :root {
-    --backgroundColor: rgb(33, 33, 33);
+    --backgroundColor: hsl(300, 23%, 8%);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -35,7 +35,7 @@ header {
     background-color: rgba(0, 0, 0, 0.152);
 }
 
-li, a, button {
+a, button {
     font-size: 25px;
     color: #edf0f1;
     text-decoration: none;
@@ -94,6 +94,10 @@ header button:hover {
 
     align-items:center;
     text-align: center;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    letter-spacing: 0.03em;
 }
 
 .txt h1 {
@@ -102,6 +106,6 @@ header button:hover {
 
 .txt h2 {
     font-size: 30px;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 5px;
 }
