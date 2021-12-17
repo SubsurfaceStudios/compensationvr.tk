@@ -35,7 +35,7 @@ header {
     background-color: rgba(0, 0, 0, 0.152);
 }
 
-a, button {
+header a, button {
     font-size: 25px;
     color: #edf0f1;
     text-decoration: none;
@@ -50,7 +50,6 @@ header {
 
 .logo {
     margin-top: 10px;
-    cursor: pointer;
 }
 
 .nav_links {
@@ -73,7 +72,7 @@ header {
 header button {
     margin-top: 15px;
     padding: 9px 25px;
-    background-color: rgb(33, 103, 121);
+    background-color: rgb(194, 65, 194);
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
@@ -82,7 +81,7 @@ header button {
 
 header button:hover {
     padding: 9px 25px;
-    background-color: rgba(33, 103, 121, 0.65);
+    background-color: rgba(194, 65, 194, 0.65);
     transition: all 0.3s ease 0s;
 }
 /* /Nav Bar */
@@ -98,6 +97,10 @@ header button:hover {
     margin-left: 20px;
     margin-right: 20px;
     letter-spacing: 0.03em;
+}
+
+a {
+    color: hsl(300, 88%, 78%);
 }
 
 .txt h1 {
