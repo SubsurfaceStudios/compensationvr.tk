@@ -30,6 +30,12 @@ body {
     background-color: var(--backgroundColor);
 }
 
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Nav Bar */
 header {
     background-color: rgba(0, 0, 0, 0.152);
