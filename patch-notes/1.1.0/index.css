@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+:root {
+    --backgroundColor: hsl(300, 23%, 8%);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.anim {
+    animation: start 0.5s linear;
+}
+
+@keyframes start {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-weight: 400;
+    line-break: strict;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Nav Bar */
+header {
+    background-color: rgba(0, 0, 0, 0.152);
+}
+
+header a, button {
+    font-size: 25px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-tracks: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.nav_links {
+    list-style-type: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 25px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #ffc3ff;
+}
+
+header button {
+    margin-top: 15px;
+    padding: 9px 25px;
+    background-color: rgb(194, 65, 194);
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover {
+    padding: 9px 25px;
+    background-color: rgba(194, 65, 194, 0.65);
+    transition: all 0.3s ease 0s;
+}
+/* /Nav Bar */
+
+.txt {
+    color: rgb(170, 170, 170);
+    display: flex;
+    flex-direction: column;
+
+    align-items:center;
+    text-align: center;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    letter-spacing: 0.03em;
+}
+
+a {
+    color: hsl(300, 88%, 78%);
+}
+
+.txt h1 {
+    font-size: 40px;
+}
+
+.txt h2 {
+    font-size: 2rem;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+li {
+     padding-top: 5%;
+     font-size: 1.5rem;
+
+}
+
+h3 {
+     padding-top: 3%;
+     font-size: 1.5rem;
+     color: rgb(207, 207, 207);
+}
+
+.hr_border {
+     border: none;
+     border-top: 1px solid white;
+     color: transparent;
+     overflow: visible;
+     text-align: center;
+     height: 15px;
+     width: 90%;
+     padding-bottom: 5%;
+
+     position: relative;
+     top: 25px;
+}
+
+.hr_border:after {
+     background: transparent;
+     content: '';
+}
+
+.marketing_image {
+    max-width: 50%;
+}
