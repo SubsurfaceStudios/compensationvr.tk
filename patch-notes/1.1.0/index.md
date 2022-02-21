@@ -1,8 +1,7 @@
-Quality Assurance / Control Patch Notes  
-BUILD 1.1.0-QC-1  
------------------------------------------------  
+Update Log
+# Compensation VR version 1.1.0
 
-# Major updates
+## Major updates
 
 * We've added a new gamemode! Basketball can now be found in the top menu of the home screen in your Dive Computer. It requires at least 2 players to begin, and rounds last either 5 minutes or until either team reaches 10 points.
 
@@ -26,7 +25,7 @@ BUILD 1.1.0-QC-1
 
 * There is now a view camera in your Inventory menu, which you can use to get an outside view at your outfit.
 
-# Minor Changes
+## Minor Changes
 
 * We've finally learned how to handle multithreaded functions, meaning there is now almost no hanging when opening the Tag Selection, Player Profile, or any other API-based menu.
 
