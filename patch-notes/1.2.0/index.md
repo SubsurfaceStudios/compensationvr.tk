@@ -7,9 +7,9 @@ Update Log
 *    This should be a nice place to hang out and enjoy yourself, and we plan to expand upon it soon.
 * We've added a Messaging system! You can find it under your Watch Home Menu > "Social".
 *    For now, there's only one server, but we plan to add Direct Messages, Group Chats, custom servers, and more.
-* We've added the Capture Camera! This camera supports both image captures and video captures, on both PCVR and standalone platforms!
+* We've added the Capture Camera! This camera supports taking photos on both PCVR and standalone platforms!
 *    You can find it under the "Tools" menu in your Watch, and spawn it using the green button. You can also despawn it using the red button.
-*    Image captures are also uploaded to our servers, meaning you will be able to view them online shortly!
+*    Image captures are uploaded to our servers, meaning you will be able to view them online shortly!
 * The Keyboard in both the watch and the login screen now supports a full en-US keyboard layout, including tab, return, caps lock, and more!
 
 ## Minor Changes
