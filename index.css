@@ -23,8 +23,13 @@ img {
     text-align: left;
 }
 
+.horiz_padded_med {
+    transition: ease all .5s;
+}
+
 @media (min-width:750px) {
     .horiz_padded_med {
+        transition: ease all .5s;
         padding-left: 30%;
         padding-right: 30%;
     }
