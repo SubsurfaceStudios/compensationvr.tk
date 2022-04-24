@@ -5,6 +5,20 @@ body {
     color: white;
     font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+    cursor: default;
+}
+
+codeblock {
+    background-color: black;
+    padding: .25rem;
+    margin: .1rem;
+    border: white 1px solid;
+    border-radius: .25rem;
+    color: gray;
+}
+
+codeblock > highlight {
+    color: white;
 }
 
 img {
