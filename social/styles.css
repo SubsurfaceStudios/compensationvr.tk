@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+body {
+    background-color: rgb(41, 0, 37);
+    color: white;
+    font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    cursor: default;
+}
+
+codeblock {
+    background-color: black;
+    padding: .25rem;
+    margin: .1rem;
+    border: white 1px solid;
+    border-radius: .25rem;
+    color: gray;
+}
+
+codeblock > highlight {
+    color: white;
+}
+
+img {
+    width: 100%;
+}
+
+.img-container {
+    background-color: black;
+    color: white;
+    border: solid .125rem white;
+    border-radius: 1rem;
+}
+
+.img-container > a {
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.img-container > a > img {
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.highlight {
+    border: red 5px dashed;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.center {
+    align-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left {
+    align-items: flex-start;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.header_button {
+    background-color: black;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.hide_link_styles {
+    text-decoration: none;
+    color: white;
+}
+
+header > hr {
+    margin-top: 2rem;
+    color: white;
+    border-style:solid;
+}
+
+.large-text {
+    font-size: 2rem;
+}
+
+@media (min-width:750px) {
+    .horiz_padded_med {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
