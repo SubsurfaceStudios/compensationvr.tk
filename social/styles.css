@@ -25,6 +25,27 @@ img {
     width: 100%;
 }
 
+.img-container {
+    background-color: black;
+    color: white;
+    border: solid .125rem white;
+    border-radius: 1rem;
+}
+
+.img-container > a {
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.img-container > a > img {
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.highlight {
+    border: red 5px dashed;
+    border-radius: 5px;
+    background-color: white;
+}
+
 .center {
     align-self: center;
     align-items: center;
