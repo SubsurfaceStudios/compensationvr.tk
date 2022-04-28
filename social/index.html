@@ -5,10 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <title>Compensation VR - Social</title>
 </head>
 <body>
+    <div class="search-dimmer hidden" id="room-search-dimmer">
+        <div class="highlight" id="search-box">
+            <h2>Room Search</h2> 
+            <input id="room-search-input">
+            <button id="room-search-close">&times;</button>
+            <div id="room-search-parent">
+                
+            </div>
+        </div>
+    </div>
+
     <header>
         <a href="../" class="hide_link_styles"><h1>Compensation VR</h1></a>
         <div>
@@ -16,6 +27,7 @@
             <a class="header_button hide_link_styles" href="../about/">About</a>
             <a class="header_button hide_link_styles" href="../download/">Download</a>
             <a class="header_button hide_link_styles" href="#">Social</a>
+            <button class="header_button hide_link_styles" id="room-search-button">Search Rooms</button>
         </div>
         <hr>
     </header>
