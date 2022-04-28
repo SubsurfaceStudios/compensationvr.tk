@@ -77,7 +77,8 @@ img {
 .header_button {
     background-color: black;
     padding: 1rem;
-    margin: 1rem;
+    margin: .25rem;
+    margin-top: 1.5rem;
     border-radius: .5rem;
     border-color: white;
     border-style: solid;
