@@ -25,6 +25,10 @@ img {
     width: 100%;
 }
 
+a {
+    color: lightblue;
+}
+
 .center {
     align-self: center;
     align-items: center;
