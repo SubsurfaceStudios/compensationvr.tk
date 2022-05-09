@@ -6,8 +6,6 @@ body {
     font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     cursor: default;
-    width: 100%;
-    height: 100%;
     overflow-x: hidden;
 }
 

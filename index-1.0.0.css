@@ -6,6 +6,7 @@ body {
     font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     cursor: default;
+    overflow-x: hidden;
 }
 
 codeblock {
@@ -44,11 +45,15 @@ a {
 .header_button {
     background-color: black;
     padding: 1rem;
-    margin: 1rem;
+    margin: .25rem;
+    margin-top: 1.5rem;
     border-radius: .5rem;
     border-color: white;
     border-style: solid;
     border-width: 2px;
+    font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:normal;
+    cursor: pointer;
 }
 
 .hide_link_styles {
