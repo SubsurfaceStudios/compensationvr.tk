@@ -84,6 +84,7 @@ img {
     font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight:normal;
     cursor: pointer;
+    display: inline-block;
 }
 
 .hide_link_styles {

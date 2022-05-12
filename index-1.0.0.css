@@ -18,7 +18,20 @@ codeblock {
     color: gray;
 }
 
+.codeblock {
+    background-color: black;
+    padding: .25rem;
+    margin: .1rem;
+    border: white 1px solid;
+    border-radius: .25rem;
+    color: gray;
+}
+
 codeblock > highlight {
+    color: white;
+}
+
+.codeblock > .highlight {
     color: white;
 }
 
@@ -54,6 +67,7 @@ a {
     font-family: "Josefin Sans", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight:normal;
     cursor: pointer;
+    display: inline-block;
 }
 
 .hide_link_styles {
