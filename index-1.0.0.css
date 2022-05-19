@@ -49,10 +49,18 @@ a {
     text-align: center;
 }
 
+.center:hover {
+    cursor: text;
+}
+
 .left {
     align-items: flex-start;
     align-self: flex-start;
     text-align: left;
+}
+
+.left:hover {
+    cursor: text;
 }
 
 .header_button {
@@ -92,3 +100,6 @@ header > hr {
     }
 }
 
+p:hover() {
+    cursor: text;
+}
