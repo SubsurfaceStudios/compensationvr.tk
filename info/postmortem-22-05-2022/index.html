@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../index-1.0.0.css">
+    <title>Compensation VR Postmortem - 22 May 2022</title>
+</head>
+<body>
+    <header>
+        <a href="../../" class="hide_link_styles"><h1>Compensation VR</h1></a>
+        <div>
+            <a class="header_button hide_link_styles" href="../../updates/">Updates</a>
+            <a class="header_button hide_link_styles" href="../../about/">About</a>
+            <a class="header_button hide_link_styles" href="../../download/">Download</a>
+            <a class="header_button hide_link_styles" href="../../social">Social</a>
+            <a class="header_button hide_link_styles" href="../../legal/">Legal</a>
+        </div>
+        <hr>
+    </header>
+
+    <div class="horiz_padded_med">
+        <h1>DDoS Attack Postmortem<br>
+            22 May 2022
+        </h1>
+        <h2 class="left">Summary</h2>
+        <p class="left">
+            Today, from 12:00 PM Eastern Standard Time, a Distributed Denial of Service (DDoS) attack was conducted on the Compensation VR image server(s).<br>
+            This attack consisted of 50+ accounts being created unnecessarily and they were used to upload over 5,000 images to the Compensation VR API.<br>
+            At approximately 3:20 PM EST, Compensation VR API staff stepped in and disabled image uploads.<br>
+            Before that action was carried out, the daily Firebase 1GB bandwidth limit was reached, so no new files were uploaded, only the metadata was actually inserted.
+        </p>
+        <h2 class="left">Mistakes</h2>
+        <ul class="left">
+            <li>
+                The attack was not mitigated by Cloudflare, despite an extreme amount of requests being made to the API, especially compared to normally very low traffic.
+            </li>
+            <li>
+                Proper rate limiting was not implemented on image upload endpoints, allowing the attackers to make up to 100 requests per minute from each IP address.
+            </li>
+            <li>
+                Due to the ease of creating Compensation VR accounts, the attackers were able to create over 50 accounts during the attack.<br>
+                This is due, in part, to the rate limit issue described previously.
+            </li>
+            <li>
+                While it was not exploited in this attack, the Compensation VR API server was temporarily open to requests not proxied through Cloudflare (due to internal testing), which could allow requests directly to the origin IP.<br>
+                This would bypass any protections offered by Cloudflare, however it is already resolved.
+            </li>
+            <li>
+                There is only 1 Developer with full access and knowledge of all API systems, and that individual was otherwise engaged with unrelated tasks.<br>
+                This prevented the attack from being stopped within minutes, and delayed the response time by over 2 hours.
+            </li>
+        </ul>
+        <h2 class="left">Successes</h2>
+        <ul class="left">
+            <li>
+                The Compensation API server demonstrated extreme resistance to the attack, despite massive throughput of over 50 requests per minute and over 5000 images in under 3 hours.
+            </li>
+            <li>
+                The Compensation VR API was agile enough to disable image uploads with a single configuration change and restart, which had the ability to stop the attackers dead in their tracks.
+            </li>
+            <li>
+                The images had a maximum file size of 10 megabytes, due to file size limiting on the API server. This prevented higher throughput that could have caused out-of-memory exceptions in the API.
+            </li>
+            <li>
+                No other systems within the API were affected by the attack, showing complete compartmentalization of critical systems.
+            </li>
+            <li>
+                The metadata for all 5000+ images was able to be cleared from the database in under 15 minutes after the attack was stopped.
+            </li>
+        </ul>
+        <h2 class="left">Upcoming Changes</h2>
+        <p class="left">
+            In the wake of this attack, we've concluded that a multitude of changes are required to continue serving our community.
+        </p>
+        <ul class="left">
+            <li>
+                Proper rate limiting will be implemented on all pertinent endpoints, and the blanket 100 requests per minute rate limit will be removed.<br>
+                This global rate limit resulted in a false sense of security for API staff, and is a major flaw in our systems.
+            </li>
+            <li>
+                Image uploads will now be limited to 10 images per hour, as opposed to the global limit of 100 per minute.<br>
+                This may be changed in the future if the servers are upgraded, our bandwidth increases, or other limiting factors are resolved.
+            </li>
+            <li>
+                We're planning to implement a stringent rate limit for account creation, to prevent the account spam that was triggered today.
+            </li>
+            <li>
+                We're planning to train and onboard at least one other staff member for the API team as soon as possible, to ensure the API is protected as much as possible.
+            </li>
+        </ul>
+        <h2 class="left">Conclusion</h2>
+        <p class="left">
+            While we're fairly sure this attack was from a disgruntled former staff member, we cannot be certain of this, and will take no action against this individual until further proof is provided.<br>
+            The image API will remain offline for 36-48 hours to allow for internal cleanup and investigation, and will be restored to normal operation after that period.<br>
+            As always, thank you for playing Compensation VR.<br>
+            At the moment, we're experiencing an unrelated issue with WebSockets preventing current versions of the game from being played. We plan to resolve this issue as soon as possible.<br>
+            Until then, please make sure to join the Discord for regular updates on the situation!
+        </p>
+    </div>
+</body>
+</html>
