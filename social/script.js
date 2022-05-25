@@ -50,6 +50,7 @@ function loadMore() {
                 // image itself
                 const img = document.createElement('img');
                 img.src = src;
+                img.loading = "lazy";
 
                 // caption
                 const h3 = document.createElement('h3');
