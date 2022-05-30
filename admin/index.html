@@ -53,11 +53,18 @@
         <div id="dashboard" class="hidden">
             <h2>Welcome back!</h2>
 
+            <h2 id="error-text-dashboard danger"></h2>
+
+            <h2>Analytics Data</h2>
+            <p id="analytics">
+                Total number of accounts: 
+            </p>
+
             <h2>Ban User</h2>
-            <input type="text" id="ban-id" placeholder="User ID" disabled>
-            <input type="text" id="ban-reason" placeholder="Reason" disabled>
-            <input type="date" id="ban-date" placeholder="Ban Until" disabled>
-            <button id="ban-button" type="submit" disabled>Ban User</button>
+            <input type="text" id="ban-id" placeholder="User ID" >
+            <input type="text" id="ban-reason" placeholder="Reason">
+            <input type="number" id="ban-date" placeholder="Ban for X days">
+            <button id="ban-button" type="submit">Ban User</button>
         </div>
     </div>
 </body>

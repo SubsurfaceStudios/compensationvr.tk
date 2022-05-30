@@ -11,6 +11,8 @@ const banReasonInput = document.getElementById('ban-reason');
 const banButton = document.getElementById('ban-button');
 const banUntil = document.getElementById('ban-date');
 
+const dashboardErrorText = document.getElementById("error-text-dashboard");
+
 function showLoadingScreen() {
     loadingScreen.classList.remove('hidden');
     loginFlow.classList.add('hidden');
@@ -18,18 +20,35 @@ function showLoadingScreen() {
 }
 
 function showLoginFlow() {
+    window.sessionStorage.removeItem('token');
+    window.sessionStorage.removeItem('tokenGrantedAt');
     loginFlow.classList.remove('hidden');
     loadingScreen.classList.add('hidden');
     content.classList.add('hidden');
 }
 
 function showContent() {
+    if(!verifyCurrentToken()) return showLoginFlow();
+
     content.classList.remove('hidden');
     loadingScreen.classList.add('hidden');
     loginFlow.classList.add('hidden');
 }
 
+function verifyCurrentToken() {
+    const tokenGrantedAt = window.sessionStorage.getItem('tokenGrantedAt');
+    if(tokenGrantedAt == null) return false;
+    const now = new Date();
+    const ms = now.getTime() - new Date(tokenGrantedAt).getTime();
+    const seconds = ms / 1000;
 
+    if(seconds > 3600) {
+        window.sessionStorage.removeItem('token');
+        window.sessionStorage.removeItem('tokenGrantedAt');
+        return false;
+    }
+    return true;
+}
 
 
 function login() {
@@ -84,31 +103,25 @@ function login() {
                     return;
                 }
 
+                window.sessionStorage.removeItem('token');
+                window.sessionStorage.removeItem('tokenGrantedAt');
+
                 window.sessionStorage.setItem('token', data.accessToken);
-                window.sessionStorage.setItem('tokenGrantedAt', new Date());
+                window.sessionStorage.setItem('tokenGrantedAt', new Date().toISOString());
                 showContent();
             });
         });
 }
 
 function banUser() {
-    const iso = banUntil.value;
-    const now = new Date();
-
-    const date = new Date(iso);
-
-    const ms = date.getTime() - now.getTime();
-
-    const days = Math.ceil(ms / (1000 * 3600 * 24));
-
-    const url = `https://api.compensationvr.tk/api/accounts/${banIdInput.value}/ban`;
+    const val = encodeURI(banIdInput.value); // XSS is cringe
+    const url = `https://api.compensationvr.tk/api/accounts/${val}/ban`;
     const data = {
-        duration: days,
+        duration: banUntil.value,
         reason: banReasonInput.value
     };
 
     showLoadingScreen();
-
     window.fetch(url, {
         method: 'POST',
         headers: {
@@ -118,15 +131,27 @@ function banUser() {
         body: JSON.stringify(data)
     })
     .then(response => {
-
+        showContent();
+        switch(response.status) {
+            case 404:
+                dashboardErrorText.textContent = "No user found with that ID.";
+                return;
+            case 403:
+                dashboardErrorText.textContent = "You do not have permission to ban this user.";
+                return;
+            case 401:
+                dashboardErrorText.textContent = "You are not logged in.";
+                setTimeout(() => showLoginFlow(), 2500);
+                return;
+            case 200:
+                break;
+        }
     });
 }
 
 loginButton.onclick = login;
+passwordField.onsubmit = login;
 banButton.onclick = banUser;
 
-if(window.sessionStorage.getItem('token')) {
-    showContent();
-} else {
-    showLoginFlow();
-}
+if(verifyCurrentToken()) showContent();
+else showLoginFlow();
