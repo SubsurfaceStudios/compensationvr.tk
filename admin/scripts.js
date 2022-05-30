@@ -12,6 +12,7 @@ const banButton = document.getElementById('ban-button');
 const banUntil = document.getElementById('ban-date');
 
 const dashboardErrorText = document.getElementById("error-text-dashboard");
+const dashboardAnalyticsText = document.getElementById("analytics-text");
 
 function showLoadingScreen() {
     loadingScreen.classList.remove('hidden');
@@ -48,6 +49,17 @@ function verifyCurrentToken() {
         return false;
     }
     return true;
+}
+
+function pullAnalyticsData() {
+    dashboardAnalyticsText.textContent = 'Loading analytics...';
+    window.fetch("https://api.compensationvr.tk/api/analytics/account-count")
+        .then(response => {
+            response.text()
+                .then(text => {
+                    dashboardAnalyticsText.textContent = `Total accounts created : ${text}`;
+                });
+        });
 }
 
 
@@ -109,6 +121,7 @@ function login() {
                 window.sessionStorage.setItem('token', data.accessToken);
                 window.sessionStorage.setItem('tokenGrantedAt', new Date().toISOString());
                 showContent();
+                pullAnalyticsData();
             });
         });
 }
@@ -153,5 +166,9 @@ loginButton.onclick = login;
 passwordField.onsubmit = login;
 banButton.onclick = banUser;
 
-if(verifyCurrentToken()) showContent();
-else showLoginFlow();
+if(verifyCurrentToken()) {
+    showContent();
+    pullAnalyticsData();
+} else {
+    showLoginFlow();
+}
