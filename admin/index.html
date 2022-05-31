@@ -63,6 +63,28 @@
             <input type="text" id="ban-reason" placeholder="Reason">
             <input type="number" id="ban-date" placeholder="Ban for X days">
             <button id="ban-button" type="submit">Ban User</button>
+
+            <h2>View User</h2>
+            <input type="text" id="view-user-id" placeholder="User ID">
+            <button id="view-user-button" type="submit">Open</button>
+        </div>
+
+        <div id="view-user" class="hidden view-user-container">
+            <button class="view" id="view-user-back-button">Back</button>
+            <h2 id="view-user-header">User Info - [Loading...]</h2>
+            <h2>Tag</h2>
+            <h3 id="view-user-tag">[Loading..]</h3>
+            <h3>Bio</h3>
+            <p id="view-user-bio">
+                [Loading...]
+            </p>
+            <h2>Actions</h2>
+            <h3 class="danger" id="user-error-text"></h3>
+            <input type="text" id="grant-user-tag-input" placeholder="Tag">
+            <button id="grant-user-tag-button" type="submit">Grant Tag</button>
+            <br>
+            <input type="text" id="revoke-user-tag-input" placeholder="Tag">
+            <button id="revoke-user-tag-button" type="submit">Revoke Tag</button>
         </div>
     </div>
 </body>

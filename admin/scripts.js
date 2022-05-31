@@ -14,10 +14,23 @@ const banUntil = document.getElementById('ban-date');
 const dashboardErrorText = document.getElementById("error-text-dashboard");
 const dashboardAnalyticsText = document.getElementById("analytics-text");
 
+const viewUserButton = document.getElementById('view-user-button');
+const viewUserId = document.getElementById('view-user-id');
+const viewUser = document.getElementById('view-user');
+const userErrorText = document.getElementById('user-error-text');
+
+const grantUserTagButton = document.getElementById('grant-user-tag-button');
+const revokeUserTagButton = document.getElementById('revoke-user-tag-button');
+
+const viewUserBackButton = document.getElementById('view-user-back-button');
+
+let viewingId;
+
 function showLoadingScreen() {
     loadingScreen.classList.remove('hidden');
     loginFlow.classList.add('hidden');
     content.classList.add('hidden');
+    viewUser.classList.add('hidden');
 }
 
 function showLoginFlow() {
@@ -26,6 +39,7 @@ function showLoginFlow() {
     loginFlow.classList.remove('hidden');
     loadingScreen.classList.add('hidden');
     content.classList.add('hidden');
+    viewUser.classList.add('hidden');
 }
 
 function showContent() {
@@ -34,6 +48,16 @@ function showContent() {
     content.classList.remove('hidden');
     loadingScreen.classList.add('hidden');
     loginFlow.classList.add('hidden');
+    viewUser.classList.add('hidden');
+}
+
+function showUser() {
+    if(!verifyCurrentToken()) return showLoginFlow();
+
+    content.classList.add('hidden');
+    loadingScreen.classList.add('hidden');
+    loginFlow.classList.add('hidden');
+    viewUser.classList.remove('hidden');
 }
 
 function verifyCurrentToken() {
@@ -162,9 +186,136 @@ function banUser() {
     });
 }
 
+function viewUserData() {
+    showLoadingScreen();
+
+    const val = encodeURI(viewUserId.value); // XSS is cringe
+    const url = `https://api.compensationvr.tk/api/accounts/${val}/public`;
+
+    window.fetch(url).then(response => {
+        switch(response.status) {
+            case 404:
+                dashboardErrorText.textContent = "User not found!";
+                showContent();
+                pullAnalyticsData();
+                return;
+            case 401:
+                dashboardErrorText.textContent = "You are not logged in.";
+                showContent();
+                setTimeout(() => showLoginFlow(), 2500);
+                return;
+            case 403:
+                dashboardErrorText.textContent = "You do not have permission to view this user's data.";
+                return;
+            default:
+                dashboardErrorText.textContent = "An unknown error has occurred. Please try again later.";
+                showContent();
+                pullAnalyticsData();
+                return;
+            case 200:
+                break;
+        }
+        
+        response.json().then(data => {
+            document.getElementById('view-user-header').textContent = `User data - @${data.username} / '${data.nickname}' / (#${val})`;
+            document.getElementById('view-user-bio').textContent = data.bio;
+            document.getElementById('view-user-tag').textContent = data.tag;
+            showUser();
+            viewingId = val;
+        });
+    });
+}
+
+function revokeTag() {
+    showLoadingScreen();
+
+    const tag = document.getElementById('revoke-user-tag-input').value;
+    const val = encodeURI(viewingId); // XSS is cringe
+    const url = `https://api.compensationvr.tk/api/accounts/${val}/tags/${tag}`;
+
+    window.fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${window.sessionStorage.getItem('token')}`
+        }
+    }).then(response => {
+        switch(response.status) {
+            case 404:
+                userErrorText.textContent = "User not found!";
+                showUser();
+                return;
+            case 401:
+                userErrorText.textContent = "You are not logged in.";
+                showUser();
+                setTimeout(() => showLoginFlow(), 2500);
+                return;
+            case 403:
+                userErrorText.textContent = "You do not have permission to revoke this tag.";
+                showUser();
+                return;
+            default:
+                userErrorText.textContent = "An unknown error has occurred. Please try again later.";
+                showUser();
+                return;
+            case 200:
+                break;
+        }
+
+        userErrorText.textContent = "Tag successfully revoked.";
+        showUser();
+    });
+}
+
+function grantTag() {
+    showLoadingScreen();
+
+    const tag = encodeURI(document.getElementById('grant-user-tag-input').value);
+    window.fetch(`https://api.compensationvr.tk/api/accounts/${viewingId}/tags/${tag}`, {
+        'method': 'PUT',
+        'headers': {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${window.sessionStorage.getItem('token')}`
+        }
+    }).then(response => {
+        switch(response.status) {
+            case 404:
+                userErrorText.textContent = "User not found!";
+                showUser();
+                return;
+            case 401:
+                userErrorText.textContent = "You are not logged in.";
+                showUser();
+                setTimeout(() => showLoginFlow(), 2500);
+                return;
+            case 403:
+                userErrorText.textContent = "You do not have permission to grant this user a tag.";
+                showUser();
+                return;
+            default:
+                userErrorText.textContent = "An unknown error has occurred. Please try again later.";
+                showUser();
+                return;
+            case 200:
+                break;
+        }
+        userErrorText.textContent = "Tag granted!";
+        showUser();
+    });
+}
+
 loginButton.onclick = login;
 passwordField.onsubmit = login;
 banButton.onclick = banUser;
+viewUserButton.onclick = viewUserData;
+
+grantUserTagButton.onclick = grantTag;
+revokeUserTagButton.onclick = revokeTag;
+
+viewUserBackButton.onclick = () => {
+    pullAnalyticsData();
+    showContent();
+};
 
 if(verifyCurrentToken()) {
     showContent();

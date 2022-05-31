@@ -56,3 +56,29 @@
 .loading-spinner-flex.hidden {
     display: none;
 }
+
+table {
+    border: .1rem solid white;
+    background-color: black;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+td > button {
+    width: 100%;
+}
+
+td > input {
+    width: 75%;
+}
+
+.view-user-container > button, 
+.view-user-container > input, 
+#dashboard > button, 
+#dashboard > input {
+    background-color: black;
+    border: .1rem white solid;
+    color: white;
+    border-radius: .25rem;
+}
