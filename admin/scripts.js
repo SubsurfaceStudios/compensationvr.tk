@@ -146,8 +146,16 @@ function login() {
                 window.sessionStorage.setItem('tokenGrantedAt', new Date().toISOString());
                 showContent();
                 pullAnalyticsData();
+                window.onfocus += onfocus;
             });
         });
+}
+
+function onfocus() {
+    if(!verifyCurrentToken()) {
+        window.onfocus -= onfocus;
+        showLoginFlow();
+    }
 }
 
 function banUser() {
