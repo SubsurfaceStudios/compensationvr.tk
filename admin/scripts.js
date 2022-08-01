@@ -22,7 +22,13 @@ const userErrorText = document.getElementById('user-error-text');
 const grantUserTagButton = document.getElementById('grant-user-tag-button');
 const revokeUserTagButton = document.getElementById('revoke-user-tag-button');
 
+const setUserItemCountButton = document.getElementById('set-user-item-count-button');
+
 const viewUserBackButton = document.getElementById('view-user-back-button');
+
+const itemCountError = document.getElementById('item-count-error-text');
+
+let api_ns = "api.compensationvr.tk";
 
 let viewingId;
 
@@ -77,7 +83,7 @@ function verifyCurrentToken() {
 
 function pullAnalyticsData() {
     dashboardAnalyticsText.textContent = 'Loading analytics...';
-    window.fetch("https://api.compensationvr.tk/api/analytics/account-count")
+    window.fetch(`https://${api_ns}/api/analytics/account-count`)
         .then(response => {
             response.text()
                 .then(text => {
@@ -113,7 +119,7 @@ function login() {
         },
         body: JSON.stringify(body)
     };
-    window.fetch("https://api.compensationvr.tk/api/auth/login", options)
+    window.fetch(`https://${api_ns}/api/auth/login`, options)
         .then(response => {
             switch(response.status) {
                 case 404:
@@ -160,7 +166,7 @@ function onfocus() {
 
 function banUser() {
     const val = encodeURI(banIdInput.value); // XSS is cringe
-    const url = `https://api.compensationvr.tk/api/accounts/${val}/ban`;
+    const url = `https://${api_ns}/api/accounts/${val}/ban`;
     const data = {
         duration: banUntil.value,
         reason: banReasonInput.value
@@ -198,7 +204,7 @@ function viewUserData() {
     showLoadingScreen();
 
     const val = encodeURI(viewUserId.value); // XSS is cringe
-    const url = `https://api.compensationvr.tk/api/accounts/${val}/public`;
+    const url = `https://${api_ns}/api/accounts/${val}/public`;
 
     window.fetch(url).then(response => {
         switch(response.status) {
@@ -239,7 +245,7 @@ function revokeTag() {
 
     const tag = document.getElementById('revoke-user-tag-input').value;
     const val = encodeURI(viewingId); // XSS is cringe
-    const url = `https://api.compensationvr.tk/api/accounts/${val}/tags/${tag}`;
+    const url = `https://${api_ns}/api/accounts/${val}/tags/${tag}`;
 
     window.fetch(url, {
         method: 'DELETE',
@@ -279,7 +285,7 @@ function grantTag() {
     showLoadingScreen();
 
     const tag = encodeURI(document.getElementById('grant-user-tag-input').value);
-    window.fetch(`https://api.compensationvr.tk/api/accounts/${viewingId}/tags/${tag}`, {
+    window.fetch(`https://${api_ns}/api/accounts/${viewingId}/tags/${tag}`, {
         'method': 'PUT',
         'headers': {
             'Content-Type': 'application/json',
@@ -312,6 +318,60 @@ function grantTag() {
     });
 }
 
+function setUserItemCount() {
+    showLoadingScreen();
+    const itemid = document.getElementById('set-user-item-count-id-input').value;
+    const count = document.getElementById('set-user-item-count-number-input').value;
+
+    const n = parseInt(count);
+    if(isNaN(n)) {
+        itemCountError.textContent = "Invalid count. Must be an integer.";
+        showUser();
+        return;
+    }
+
+    window.fetch(`https://${api_ns}/dev/accounts/${viewingId}/inventory-item`, {
+            'method': 'POST',
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${window.sessionStorage.getItem('token')}`
+            },
+            'body': JSON.stringify({
+                item_id: itemid,
+                count: n
+            })
+        })
+        .then(response => {
+            switch(response.status) {
+                case 200:
+                    itemCountError.textContent = "Successfully set item count.";
+                    showUser();
+                    return;
+                case 404:
+                    itemCountError.textContent = "Failed to locate user.";
+                    showUser();
+                    return;
+                case 500:
+                    itemCountError.textContent = "Internal server error occurred.";
+                    showUser();
+                    return;
+                case 403:
+                    showLoginFlow();
+                    return;
+                default:
+                    itemCountError.textContent = "An unknown error occurred.";
+                    showUser();
+                    console.log(response);
+                    response.text().then(t => console.log(t));
+                    return;
+            }
+        });
+}
+
+function namespace(ns) {
+    api_ns = ns;
+}
+
 loginButton.onclick = login;
 passwordField.onsubmit = login;
 banButton.onclick = banUser;
@@ -319,6 +379,8 @@ viewUserButton.onclick = viewUserData;
 
 grantUserTagButton.onclick = grantTag;
 revokeUserTagButton.onclick = revokeTag;
+
+setUserItemCountButton.onclick = setUserItemCount;
 
 viewUserBackButton.onclick = () => {
     pullAnalyticsData();
