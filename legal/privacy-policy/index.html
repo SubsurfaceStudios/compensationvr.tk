@@ -88,8 +88,9 @@
                     Hardware Identification information (HWID) used when logging in with Two-Factor Authentication to see if you have previously logged in with a device.<br>
                     This only applies to users who have enabled & verified Two-Factor Authentication.
                 </li>
+                <li>Data pertaining to Opt-In Automatic Exception Reporting - for more information, please see Section 6 - Automatic Exception Reporting</li>
             </ul>
-            <h2 class="left">Data Usage</h2>
+            <h2 class="left">5. Data Usage</h2>
             <p class="left">
                 Data collected by <b>Us</b> will be used for the following purposes:
             </p>
@@ -105,9 +106,27 @@
                     These analytics are simple and do not contain any Personally Identifiable Information, primarily Online Player Count, Open Instance Count, and Number of Generated Accounts.
                 </li>
                 <li>
+                    Opt-In (optional) non-anonymized analytics, which can be enabled using an explicit setting either in <b>Compensation VR</b> or over the <b>Compensation VR</b> API.
+                    For more information, see <a href="#section-6"></a> Section 6 (Automatic Exception Reporting).
+                </li>
+                <li>
                     If you would like to guarantee the authenticity of these claims, the full and complete source code of our backend servers is open source & available on <a href="https://github.com/bubby932/VigorXRAPI">GitHub</a>.
                 </li>
             </ul>
+
+            <!-- AER Updates -->
+            <h2 class="left" id="section-6">6. Automatic Exception Reporting</h2>
+            <p class="left">
+                Automatic Error Reporting (AER for short) is a system in <b>Compensation VR</b> which can (when explicitly enabled by <b>You</b>) automatically report any errors encountered at runtime in the <b>Compensation VR</b> program.
+                This is used internally by <b>Us</b> to resolve issues in <b>Compensation VR</b> without <b>You</b> needing to take the time to file a bug report.<br>
+                <br>
+                This system is entirely optional, and disabled by default. All data is encrypted in storage, with access (private) keys only on an entirely seperate server, innaccessable over HTTP and unrelated to the <b>Compensation VR</b> API in any meaningful way.
+                This server can only be accessed by certain members of the <b>Subsurface Studios</b> team.<br>
+                <br>
+                After <b>You</b> enable AER, there is a seperate setting ("Allow the CVR team to contact me about automatic reports", which is disabled by default), which includes <b>Your</b> unique user ID in the exception report.<br>
+                However, having this option disabled <b>only</b> prevents the server from adding your user ID to the report itself, it <b>does not</b> make the server redact PII, HWID, or other identifying information of any sort from the report content itself. 
+                However, <b>We</b> will not contact <b>You</b> about reports <b>You</b> implicitly make if you have this setting disabled.
+            </p>
         </div>
     </main>
 </body>
