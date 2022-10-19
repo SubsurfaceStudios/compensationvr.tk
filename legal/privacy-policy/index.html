@@ -115,17 +115,18 @@
             </ul>
 
             <!-- AER Updates -->
-            <h2 class="left" id="section-6">6. Automatic Exception Reporting</h2>
+            <h2 class="left" id="section-6">6. Automatic Exception Reporting (AER)</h2>
             <p class="left">
-                Automatic Error Reporting (AER for short) is a system in <b>Compensation VR</b> which can (when explicitly enabled by <b>You</b>) automatically report any errors encountered at runtime in the <b>Compensation VR</b> program.
-                This is used internally by <b>Us</b> to resolve issues in <b>Compensation VR</b> without <b>You</b> needing to take the time to file a bug report.<br>
+                AER is an opt-in program in which the <b>Compensation VR</b> software will automatically report any errors and/or exceptions encountered during excecution.
+                These reports consist of the raw error message emitted by the erroneous code, as well as the relevant stack trace.
+                Measures exist to anonymize this information, however, the raw contents of the report may breach these measures, and there are no guarantees as to the anonymity of any data submitted via AER.
+                Participation in AER serves to fill potential gaps in manual bug reporting, for example, in cases where a software bug is either not easily visible, or where a user may be unwilling to report an issue.
                 <br>
-                This system is entirely optional, and disabled by default. All data is encrypted in storage, with access (private) keys only on an entirely seperate server, innaccessable over HTTP and unrelated to the <b>Compensation VR</b> API in any meaningful way.
-                This server can only be accessed by certain members of the <b>Subsurface Studios</b> team.<br>
+                Care is taken to ensure all data collected through AER(API logs notwithstanding) is encrypted at-rest, and the database server is completely blind to the unencrypted form of stored information.
+                Decryption is performed by means of a physically distinct server, access to which is granted only to authorized members of the <b>Subsurface Studios</b> team.
                 <br>
-                After <b>You</b> enable AER, there is a seperate setting ("Allow the CVR team to contact me about automatic reports", which is disabled by default), which includes <b>Your</b> unique user ID in the exception report.<br>
-                However, having this option disabled <b>only</b> prevents the server from adding your user ID to the report itself, it <b>does not</b> make the server redact PII, HWID, or other identifying information of any sort from the report content itself. 
-                However, <b>We</b> will not contact <b>You</b> about reports <b>You</b> implicitly make if you have this setting disabled.
+                As part of AER, participants may additionally opt in to including their user ID in AER reports.
+                By opting into this, you give permission for relevant members of the <b>Subsurface Studios</b> team to contact you in regards to collected reports.
             </p>
         </div>
     </main>
