@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../index-1.0.0.css">
+    <title>Compensation - Update 2.0.0 Announcement</title>
+</head>
+<body>
+    <header>
+        <a href="../../" class="hide_link_styles"><h1>Compensation VR</h1></a>
+        <div>
+            <a class="header_button hide_link_styles" href="../../updates/">Updates</a>
+            <a class="header_button hide_link_styles" href="../../about/">About</a>
+            <a class="header_button hide_link_styles" href="../../download/">Download</a>
+            <a class="header_button hide_link_styles" href="../../social">Social</a>
+            <a class="header_button hide_link_styles" href="../../legal/">Legal</a>
+            <a class="header_button hide_link_styles" href="../">News</a>
+        </div>
+        <hr>
+    </header>
+
+    <div class="horiz_padded_med">
+        <h1>2.0.0</h1>
+        <p>
+            It's finally here! <br>
+            Well, in a month. For almost two years, we've been developing Compensation. Our original goal was to have creation tools,
+            limited not by what we want to implement, but by hardware and other technical limitations alone. <br>
+            One of the best ways to put it is "Limited by other people's code, not our own." and we want to live up to that goal.
+        </p>
+        <hr>
+        <h2>What's coming</h2>
+        <h3>Fully featured mesh editing support</h3>
+        <p class="left">
+            We believe our players shouldn't be limited by the confines of simple primitives, and this is no exception.
+            You have granular control, down to every vertex and face.
+        </p>
+        <h3>Custom textures</h3>
+        <p class="left">
+            You should be able to create anything you can imagine. Custom textures allow you to make things like posters,
+            custom terrain, skyboxes, and more, simply by importing a texture.
+        </p>
+        <h3>Full UV editing support</h3>
+        <p class="left">
+            Now, of course, you need a way to project your textures onto what you create. Simple triplanar mapping works great for some,
+            but for posters, skyboxes, or anything with complex geometry, you need more precise control. Therefore, we're working on a
+            full UV editing suite complete with fast auto-unwrapping tools for when you <i>do</i>> only need a quick box project.
+        </p>
+        <h3>Face-by-face materials</h3>
+        <p class="left">
+            A mesh is only as useful as the details you can apply, and that detail is worthless if you can't control where and what it is.
+            Therefore, you have control over the material of every single face on your mesh, just as if you were editing in a game engine.
+        </p>
+        <h3>RGBA color support</h3>
+        <p class="left">
+            Materials already support RGB colors, including an Alpha channel for transparency when enabled. This means things like glass, water
+            and decals can be integrated into a mesh, without the need for a seperate object.
+        </p>
+        <h3>Multiple shader options for materials</h3>
+        <p class="left">
+            We have multple options for shaders you can apply to your materials, including opaque, transparent, emissive, metallic, and more.
+            This gives you fine-grained control over every aspect of your creations without comprimising on performance.
+        </p>
+        <h3>Support for custom mesh normals by default</h3>
+        <p class="left">
+            We have a dedicated tool for flipping the normals of a mesh, allowing you to optimize down your creations as much as you need.
+            This means if you only need the interior of an object, you don't need to make a seperate shape for every wall.
+        </p>
+        <h3>Mesh intersection support</h3>
+        <p class="left">
+            One of the most beloved features we have in the works is mesh intersection support. This includes cutting, merging, and intersecting
+            meshes, similar to Boolean or Cut tools in 3D modelling packages. For things like windows, doors, and other holes in objects 
+            (which would normally require a large number of primitives), this can be a massive improvement to the user experience.
+        </p>
+        <h3>Full standalone support</h3>
+        <p class="left">
+            We want every single player on Compensation to be able to use these tools, from the oldest Quest 1 to the newest of gaming PCs.
+            Therefore, every single tool, (even custom textures and OBJ file imports), can be used on every platform, and is tested thoroughly.
+            When we support a platform, we give you a guarantee of creative parity with other platforms.
+        </p>
+        <h3>External texture & model imports</h3>
+        <p class="left">
+            Even on standalone, we support importing <i>.obj</i> files for 3D models, and a multitude of formats for custom material textures.
+            We feel this gives you the creative freedom you need to make what you want, no matter your platform or device specifications.
+        </p>
+        <h3>Accurate colliders</h3>
+        <p class="left">
+            One of the worst things that can happen in a game is when a player falls out of the map, gets stuck, or otherwise has an issue with colliders.
+            Therefore, when editing a mesh, what you <i>see</i> in front of you is <i>exactly</i> what the player can collide with. You can disable these colliders and make your own with a seperate object,
+            or you can even disable rendering on the object and use it only as a collider. The choice is yours, and choice is what we're all about.
+        </p>
+        <h3>Granular permission control</h3>
+        <p class="left">
+            One of the most irritating things you can encounter with a permission system is not knowing what the side effects are.
+            In Compensation, almost every action has an associated permission, whether it's using the creation tool, editing the description of the room,
+            or even just changing the room photo. This gives you a huge amount of control over exactly what your moderators, users, and co-creators can & can't do in your room.
+        </p>
+        <h3>Decoupled permission roles</h3>
+        <p class="left">
+            Another massive annoyance we've had with other creation systems is when you have a limited number of permissions you can assign to a user.
+            In Compensation, you define the permission tiers, we just enforce them. Want a new role for only 3 people, that gives them the ability to save the room?
+            You've got it! Want to make it so a certain group of people can't join the room, but can change the description? We're not going to judge! It's your decision.
+        </p>
+        <h3>Content Flags system</h3>
+        <p class="left">
+            We understand, not everyone wants to see blood. In some cases, you may even have a medical condition that makes it a health risk when you're exposed to some images or sounds.
+            We have you covered with our strictly enforced Content Flags system. Every room can define a list of content warnings, which are presented to you whenever you join the room.
+            These include normal warnings like violence, suggestive content, or flashing lights, but also includes things like potentially low-performance rooms, large amounts of motion,
+            audiosensitivity triggers, or even custom warnings for things we can't describe well. Whatever the issue, we've got it covered.
+        </p>
+        <hr>
+        <h2>When?</h2>
+        <p class="left">
+            Compensation v2.0.0 releases on January 1st, 2023, at around noon Mountain Standard Time.
+            Players will recieve access to creating rooms shortly thereafter, once we make sure everything is in order.
+        </p>
+        <hr>
+        <h2>I don't want to wait!</h2>
+        <p class="left">
+            We've still got you covered! A select group of creators from other platforms, and active members of our community, are welcomed into
+            the Creative Tools Beta Program. If you are accepted, you will help us get everything in order, by testing and informing decisions on the Creation Tools and more.
+        </p>
+        <hr>
+        <h2>I want to see these tools in action!</h2>
+        <p class="left">
+            Again, we've got you covered. We have a demo room of the creation tools coming soon, with more information to come.
+        </p>
+        <hr>
+        <h2>Conclusion</h2>
+        <p class="left">
+            It's been a loooong two years, and we've loved every moment of it. Our community is the best part of Compensation, and we wouldn't have made it halfway without you.
+            Thank you for playing, and we hope to see you in-game soon.
+            Have fun, and stay creative!
+        </p>
+    </div>
+</body>
+</html>
