@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compensation VR is a multiplayer social VR game, designed to be fun and replayable for everyone.">
+    <link rel="stylesheet" href="../../index-1.0.0.css">
+    <title>Compensation VR - Update 2.1.0 - The Final Update</title>
+</head>
+<body>
+    <header>
+        <a href="../../" class="hide_link_styles"><h1>Compensation VR</h1></a>
+        <div>
+            <a class="header_button hide_link_styles" href="../">Updates</a>
+            <a class="header_button hide_link_styles" href="../../about/">About</a>
+            <a class="header_button hide_link_styles" href="../../download/">Download</a>
+            <a class="header_button hide_link_styles" href="../../social/">Social</a>
+            <a class="header_button hide_link_styles" href="../../legal/">Legal</a>
+            <a class="header_button hide_link_styles" href="../../news/">News</a>
+        </div>
+        <hr>
+    </header>
+    <main class="center">
+        <div class="center horiz_padded_med">
+            <h1>Compensation VR 2.1.0 - The Final Update</h1>
+
+            <p class="left">
+                Yep, you read that right. While 2.0.0 was the last major update for Compensation Social, 2.1.0 is the last
+                official update that will release for Compensation Social. We are pushing this update to Oculus App Lab,
+                SideQuest, and itch.io, and then development work on the official version of Compensation Social will cease.
+            </p>
+
+            <h2>Will the servers stay up?</h2>
+
+            <p class="left">
+                Unfortunately, we are choosing to reclaim the computing resources used for hosting the Compensation Social official
+                servers. However, this will not make the game unplayable, as you will see later. However, you will not be able to play
+                on Compensation Social official servers after 1 July 2023. In addition, the production and development APIs for Compensation
+                will go offline as well. This will result in Compensation Social being completely unplayable for users on the main server.
+            </p>
+
+            <h2>Moving Forwards</h2>
+
+            <p class="left">
+                Now, the astute among you may have noticed that I kept saying "official servers" instead of "servers" in the paragraph above.
+                This wasn't accidental, and here's why.
+            </p>
+
+            <h3>We are releasing Dedicated Server support.</h4>
+
+            <p class="left">
+                After a significant amount of refactoring work in the internal codebase for the Compensation Social client, we have added
+                support for users to specify a custom server address for their client to connect to. This means that, after 1 July 2023,
+                you will still be able to play Compensation Social with your friends, as long as you have a server to connect to. This
+                server can be hosted on your own computer, or on a dedicated server.
+
+                <br><br>
+
+                All that said, Compensation Social is not an easy game to host. While computing power isn't typically an issue, the setup
+                for a server instance is extremely difficult, even for developers of the game. We're looking into simplifiying our API code
+                to make it more easily self-hostable, but it's still very difficult. That said, we're extremely interested to see what the
+                community will do with this system in the future.
+            </p>
+
+            <h3>What about the game itself?</h3>
+
+            <p class="left">
+                We are looking at open-sourcing the Unity project of the game on GitHub along with the already open-source API. Unfortunately,
+                this is a rather complicated process, not due to any technical issues, but rather because of licensing. We are working to find
+                a way to open-source the game's code under a unified license, but it's not a simple process. In addition, this is not our priority
+                at the moment due to working on <a href="https://www.subsurface.ga/relay.html">Relay</a> and other Subsurface Studios projects.
+
+                <br> <br>
+                That said, even if the Compensation Open Source Project does not release, we still wholeheartedly support our modding community.
+                We will do our best to be helpful if you encounter any issues while making changes to your game client or the API, and we'd love
+                to see the incredible things you can do.
+            </p>
+
+            <h3>Will my data remain intact?</h3>
+
+            <p class="left">
+                Due to the fact we will no longer be using player data for a specific purpose, we are obligated by regulations to delete your data.
+                That said, your data will remain intact until 31 July 2023 (or until you request deletion, whichever is earlier) and you can request
+                a copy for yourself as always. You can use this to copy your player data into the game if you choose to host an instance,
+                or you may be able to ask a custom server administrator to do so for you.
+
+                <br>
+                <br>
+
+                Please note, your player data may contain relatively sensitive information like your IP address and some TOTP data. 
+                If you do not want to share this, we recommend taking a close look through the data and removing sensitive information 
+                manually. Your password is not stored in plaintext, so you can safely distribute the <codeblock>auth.passwordHash</codeblock> 
+                section of your player data without worry.
+            </p>
+
+            <h2><codeblock>CVR/<highlight>Conclusion</highlight></codeblock></h2>
+
+            <p class="left">
+                <codeblock>CVR/<highlight>Conclusion</highlight></codeblock> is the final Original gamemode for Compensation Social.
+                We are releasing it as an ode to how far we've come in the last two and a half years, and we hope you enjoy the nostalgia
+                of the room. In addition, we credit quite a number of the people who have helped us along the way in the room, so be sure
+                to check it out!
+            </p>
+
+            <h2>What's in the update?</h2>
+
+            <p class="left">
+                Glad you asked! This is a fairly small update besides Dedicated Server support, but it's still a good one in our opinion.
+            </p>
+
+            <h3>Major Changes</h3>
+            <ul class="left">
+                <li>
+                    The Login screen now has a button for setting a custom server address. This will serve as your account server and WebSocket server while
+                    you are playing, and will have full access to whatever you do in-game just like the normal servers. 
+                </li>
+                <li>
+                    Added a new CVR original, <codeblock>CVR/<highlight>Conclusion</highlight></codeblock>.
+                </li>
+            </ul>
+
+            <h3>Minor Changes</h3>
+            <ul class="left">
+                <li>
+                    Added support for the Oculus User Reporting API! This allows you to select the "Report User" button from the Oculus Quest menu
+                    and it will open the Players menu in search mode, allowing you to search for and report a user at will. We hope this makes it
+                    easier to quickly report problematic users.
+                </li>
+            </ul>
+
+            <h3>Bug Fixes</h3>
+            <ul class="left">
+                <li>
+                    We've made some near-invisible stability improvements to our API handling to allow us to better use Dedicated Servers.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2>Conclusion and Final Thoughts</h2>
+            <hr>
+            <h6>from @avery, Co-Founder / Multiplayer Developer</h6>
+            <p class="left">
+                Boy, oh boy... How do I start this?
+                <br><br>
+                So I guess I'll briefly go over Compensation Social and how I began it. 
+                Compensation Social is a VR Multiplayer game I developed with the help of Raven,
+                Opabina, June, 9021007 and many more amazing people. Over my time working on it I have produced
+                most of the OST, ranging from the first ever Menu Track to "Goodbye, CAS", all of
+                which had horrible balancing in-game. Compensation was a project I initiated with one
+                of my only friends back then, Raven. And honestly since then I was like... addicted to working on it.
+                Raven and I would always mess around in these horrible and poorly optimized builds that
+                I'd show to my parents... which always resulted in negative feedback.
+                <br><br>
+                Am I doing this right? This seems way too professional to be honest.
+                I guess I should talk about how this game affected me. So, working on
+                Compensation Social for over 2 years has gotten me into probably one
+                of my favorite things ever, programming. Ever since working on Compensation
+                I like never wanted to stop working on it. It got me addicted to programming
+                and just making stuff. Compensation gave me like this... creative spark to
+                just make whatever I wanted. While working on the game I experimented and
+                learnt new languages, C/C++, Rust, a bit of HTML/CSS and JS and so much more.
+                Honestly working on this buggy little mess of a game has gotten me to love
+                writing random, useless, software that sometimes have the worst code you could
+                ever imagine behind them. I remember the time I left a horrible line of code
+                inside of one of the scripts for CVR, I wrote <codeblock>2.ToString()</codeblock>
+                which became an inside joke among the CAS developers for a while.
+                Anyhow, CAS got me addicted to programming and music production,
+                which have both made me so much happier with what I do and who I am. It
+                like... showed me that programming is my passion! I love it, it's what
+                I always do when I get home from school, code random projects! Granted,
+                I have now advanced from Compensation into crazy stuff like Operating
+                System development, stuff that I would see as impossible if I didn't
+                have my jumpstart with Compensation! It's really amazing!
+                <br><br>
+                Overall, I'd say that Compensation is probably one of the biggest
+                things I have ever done in my life. No matter how bad it is. It's
+                what jumpstarted my love for mathematics and computer science and
+                I will forever be grateful to have had this amazing opportunity to
+                work with such amazing people like Raven, 9021007, Opabina, June,
+                alizard and any other member of the Compenstion / Subsurface Studios
+                staff team. I can't thank you all enough for how amazing you guys are.
+                <br><br>
+                Thank you all for this journey,<br>
+                - Avery
+            </p>
+            <hr>
+            <h6>from @raven, Co-Founder / UGC Developer</h6>
+            <p class="left">
+                I already got some of the sappy stuff out of my system on 2.0.0, but it's not over yet. <br>
+                <br>
+                I've been a developer on Compensation Social since the beginning, working on super poorly optimized art for
+                what was then called <strong>Bad Room</strong> (a play on <a href="https://recroom.com" target="_blank">Rec Room</a>) and I've been
+                hooked ever since. From working purely on art and letting Avery handle code all the way to writing our UGC ecosystem
+                and API code from near-scratch, Compensation Social has massively advanced my programming skills and even got me further
+                ahead in college and taught me invaluable skills for my upcoming career. <br>
+                <br>
+                I've had the opportunity to work with and meet some incredible people, from co-workers to life-long friends along the way.
+                I'm extremely glad I had the chance to meet Avery, Jai, Opabina, June, and 9021007, all of whom are people I value more than
+                I can express with words. It's been a crazy ride, from the anger of fighting with Unity crashes in <strong>Vigor XR</strong> all the way to the 
+                pure unfettered euphoria of finishing our release on Oculus App Lab. <br>
+                <br>
+                While I would likely have made some different choices along the way during our development process, I wouldn't trade the
+                friends and experiences I've had along the way for anything in the world. I'm extremely hopeful to see where things go for me
+                and my new friends in the future, and I'm happy that I've made it this far. <br>
+                <br>
+                Thank you for playing, and I really truly mean it. <br>
+                - Raven
+            </p>
+            <h6>from @jai, API Developer & In-House Kotlin Expert</h6>
+            <p class="left">
+
+            </p>
+        </div>
+    </main>
+</body>
+</html>
